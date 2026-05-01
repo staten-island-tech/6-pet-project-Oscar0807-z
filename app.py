@@ -6,32 +6,32 @@ class Hero:
         self.saturation = saturation
     def check_status(self): 
         print(self.happiness)
+    def play(self):
+        self.saturation -= 20
+        self.happiness += 15  
+        print (self.saturation)
+        print (self.happiness)
+    def feed(self):
+            x = input("What would you like to feed your pet?")
+            for i in Food:
+                if x == "Apple":
+                    self.saturation += 10
+                elif x == "Bread":
+                    self.saturation += 15
+                elif x == "Sandwich":
+                    self.saturation += 20
+                elif x == "Burger":
+                   self.saturation += 25
+            print (self.saturation)
 Food = ["Apple", "Bread", "Sandwich", "Burger"]
-
-options = ["Play","Feed","Check status"]
-a = input("What would you like to do with your pet")
+Daniel = Hero("Daniel",100,70)
+b = input("Would you like to do something")
+while b == "Yes":
+    a = input("What would you like to do with your pet")
 if a == "Feed":
     print (Food)
-    x = input("What would you like to feed your pet?")
-def feed():
-    for i in Food:
-        if x == "Apple":
-            saturation += 10
-        elif x == "Bread":
-            saturation += 15
-        elif x == "Sandwich":
-            saturation += 20
-        elif x == "Burger":
-            saturation += 25
-    print (saturation)
-def play():
-    saturation -= 20
-    happiness += 15
-def check_status():
-    print (saturation)
-    print (happiness)
-def stats():
-    if saturation <= 50:
-        print ("Your pet is hungry")
-    if happiness <= 50:
-        print ("Your pet is unhappy")
+    Daniel.feed()
+if a == "Check Status":
+    Daniel.check_status()
+if a == "Play":
+    Daniel.play()
